@@ -22,6 +22,24 @@ nav button.open-menu:after{-webkit-transform:translate3d(0,32px,0);-o-transform:
             -webkit-transition:all .3s ease;
             -moz-transition:all .3s ease;
             transition:all .3s ease}
+            .photography  .grid .grid-item img{
+            width:100%;
+            -webkit-filter:contrast(90%) grayscale(0.5) !important;
+            -moz-filter:contrast(90%) grayscale(0.5) !important;
+            -ms-filter:contrast(90%) grayscale(0.5) !important;
+            filter:contrast(90%) grayscale(0.1) !important;
+            -webkit-transition:all .3s ease;
+            -moz-transition:all .3s ease;
+            transition:all .3s ease}
+            .photography .grid .grid-item:hover img{
+            width:100%;
+            -webkit-filter:contrast(90%) grayscale(0) !important;
+            -moz-filter:contrast(90%) grayscale(0) !important;
+            -ms-filter:contrast(90%) grayscale(0) !important;
+            filter:contrast(90%) grayscale(0) !important;
+            -webkit-transition:all .3s ease;
+            -moz-transition:all .3s ease;
+            transition:all .3s ease}
         section.section-portfolio .grid .grid-item:hover img{
             -webkit-filter:contrast(100%) grayscale(0);
             -moz-filter:contrast(100%) grayscale(0);
