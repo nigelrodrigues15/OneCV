@@ -69,7 +69,7 @@ iframe {
 }
 
 .animation-chain {
-    visibility: hidden
+    /* visibility: hidden */
 }
 
 .overflow-hidden {
