@@ -764,13 +764,20 @@ var $mapViewSwitch = $('a.map-view-switch'),
 
 // Activate Google Maps
 if ($mapCanvas.length > 0){
-	$mapCanvas.googleMaps({
-		styled: false,
-		disableDefaultUI: false,
-		latitude: 22.3042500,
-		longitude: 114.1715278,
-		zoom: 15,
-	});
+
+	$mapCanvas.html(
+		`<div id="travel" class="map - frame">
+		< iframe width = "100%" height = "100%" frameborder = "0" style = "border:0" scrolling = "no" marginheight = "0"
+			marginwidth = "0" src = "https://www.google.com/maps/d/u/2/embed?mid=1TLSTtMiDihATBZZQVluwUtVPnoA" ></iframe >
+	</div >`
+	)
+	// $mapCanvas.googleMaps({
+	// 	styled: false,
+	// 	disableDefaultUI: false,
+	// 	latitude: 22.3042500,
+	// 	longitude: 114.1715278,
+	// 	zoom: 15,
+	// });
 }
 
 $mapViewSwitch.on('click', function(e){
