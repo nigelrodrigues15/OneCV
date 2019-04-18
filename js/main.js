@@ -340,6 +340,173 @@ $portfolioOverlay.on('click', function(e){
 });
 
 
+/* 4.1 Portfolio */
+
+var $grid = $('.grid');
+$grid.imagesLoaded( function() {
+	$grid.isotope({
+		itemSelector: '.grid-item',
+		layoutMode: 'masonry'
+	});
+});
+
+var $projectsCats = $('.projects-cats a');
+$projectsCats.on('click', function(e){
+	e.preventDefault();
+	var cat = $(this).data('cat');
+	if (cat !== '*') {
+		cat = '.' + cat;
+	}
+	$grid.isotope({
+		filter: cat
+	});
+});
+
+var $projectsItems = $('#projects .grid-item'),
+	$projectsModal = $('.projects-modal'),
+	$projectsModalNavPrev = $('.projects-modal .modal-nav-prev'),
+	$projectsModalNavNext = $('.projects-modal .modal-nav-next'),
+	$projectsModalNavClose = $('.projects-modal .modal-nav-close'),
+	$projectsOverlay = $('.projects-overlay'),
+	$projectsOpenModal = $('.projects-open-modal');
+
+$projectsModalNavPrev.on('click',function(e){
+	e.preventDefault();
+	$projectsItems.filter('.current').prev().trigger('click');
+});
+
+$projectsModalNavNext.on('click',function(e){
+	e.preventDefault();
+	$projectsItems.filter('.current').next().trigger('click');
+});
+
+$projectsModalNavClose.on('click',function(e){
+	e.preventDefault();
+	$projectsOverlay.trigger('click');
+});
+
+$projectsOpenModal.on('click', function(e){
+	e.preventDefault();
+	$(this).parents('.grid-item').trigger('click');
+});
+
+function openprojectsModal(){
+	setTimeout(function(){
+		$projectsModal.addClass('opened');
+		$projectsOverlay.addClass('loaded');
+	}, 300);
+}
+
+$projectsItems.on('click', function(e){
+	if (e.target.tagName.toLowerCase() !== 'img' && !$(e.target).hasClass('grid-item')) return;
+	var $this = $(this),
+		$info = $this.find('.projects-info'),
+		$left = $projectsModal.find('.left'),
+		$right = $projectsModal.find('.right'),
+		$imageList = $this.find('ul.image-list'),
+		$video = $this.find('ul.video');
+
+	$this.addClass('current').siblings().removeClass('current');
+
+	// modal navigation
+	$projectsModalNavPrev.parent().toggleClass('enabled', $this.prev().length > 0);
+	$projectsModalNavNext.parent().toggleClass('enabled', $this.next().length > 0);
+
+	// load info into modal
+	$left.empty().append( $info.clone() );
+	$right.empty();
+
+	// create carousel for images
+	if ($imageList.length > 0){
+		var $carousel = $('<div />').addClass('owl-carousel owl-theme');
+		$imageList.find('img').each(function(index, el) {
+			var $img = $(el).clone();
+
+			$img.attr('src', $img.data('src'));
+			if ($img.hasClass('img-vertical')){
+				$img.css('max-height', $win.innerHeight()-240);
+			}
+			$('<div />').addClass('item').append($img).appendTo($carousel);
+		});
+		$right.append($carousel);
+
+		$carousel.imagesLoaded(function() {
+			$carousel.owlCarousel({
+				loop:true,
+				margin:0,
+				nav:false,
+				items:1,
+				autoHeight:true,
+				dots: true,
+			});
+			openprojectsModal();
+		});
+	}
+
+	// load video into modal
+	if ($video.length > 0){
+		var $iframe = $video.find('iframe'),
+			src = $iframe.data('src'),
+			$wideScreen = $('<div />').addClass('wide-screen');
+
+		if (src.indexOf('youtube') !== -1){
+			// YouTube video
+			var	srcSplit = src.split('?'),
+				srcMain = null;
+
+			if (srcSplit.length > 0){
+				srcMain = srcSplit[0];
+				srcPure = srcMain.split('/');
+				srcPure = srcPure.pop();
+
+				var $thumbnail = $('<a />').attr({'href': '#'}).append(
+						$('<img/>').attr(
+							{'src': 'http://i.ytimg.com/vi/'+ srcPure + '/maxresdefault.jpg'}
+						)
+					);
+
+				$wideScreen.append($thumbnail);
+				$wideScreen.imagesLoaded(function(){
+					$right.append($wideScreen);
+					openprojectsModal();
+				});
+
+				$thumbnail.on('click', function(e){
+					e.preventDefault();
+					src = src+'&autoplay=1';
+					$wideScreen.empty().append( $iframe.clone().attr({'src': src}) );
+				});
+			}
+		} else{
+			$wideScreen.append(
+				$iframe.clone().attr({'src': src}).on('load', function(){
+					openprojectsModal();
+				})
+			);
+			$right.append($wideScreen);
+		}
+	}
+
+	$projectsOverlay.css('display','flex');
+	setTimeout(function(){
+		$projectsOverlay.addClass('opened');
+	},100);
+});
+
+$projectsOverlay.on('click', function(e){
+	if (!$(e.target).hasClass('projects-overlay')) return;
+	$projectsModal.find('.right').empty();
+	$projectsModal.removeClass('opened');
+	setTimeout(function(){
+		$projectsOverlay.removeClass('opened');
+		setTimeout(function(){
+			$projectsOverlay.hide();
+			$projectsOverlay.removeClass('loaded');
+		}, 300);
+	}, 300);
+});
+
+
 
 
 
