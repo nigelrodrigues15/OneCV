@@ -340,11 +340,11 @@ $portfolioOverlay.on('click', function(e){
 });
 
 
-/* 4.1 Portfolio */
+/* 4.1 Projects */
 
-var $grid = $('.grid');
-$grid.imagesLoaded( function() {
-	$grid.isotope({
+var $gridP = $('.grid.gridP');
+$gridP.imagesLoaded( function() {
+	$gridP.isotope({
 		itemSelector: '.grid-item',
 		layoutMode: 'masonry'
 	});
@@ -357,7 +357,7 @@ $projectsCats.on('click', function(e){
 	if (cat !== '*') {
 		cat = '.' + cat;
 	}
-	$grid.isotope({
+	$gridP.isotope({
 		filter: cat
 	});
 });
@@ -507,6 +507,171 @@ $projectsOverlay.on('click', function(e){
 });
 
 
+/* 4.2 Photography */
+
+var $gridPh = $('.grid.gridPh');
+$gridPh.imagesLoaded(function () {
+	$gridPh.isotope({
+		itemSelector: '.grid-item',
+		layoutMode: 'masonry'
+	});
+});
+
+var $photographyCats = $('.photography-cats a');
+$photographyCats.on('click', function (e) {
+	e.preventDefault();
+	var cat = $(this).data('cat');
+	if (cat !== '*') {
+		cat = '.' + cat;
+	}
+	$gridPh.isotope({
+		filter: cat
+	});
+});
+
+var $photographyItems = $('#photography .grid-item'),
+	$photographyModal = $('.photography-modal'),
+	$photographyModalNavPrev = $('.photography-modal .modal-nav-prev'),
+	$photographyModalNavNext = $('.photography-modal .modal-nav-next'),
+	$photographyModalNavClose = $('.photography-modal .modal-nav-close'),
+	$photographyOverlay = $('.photography-overlay'),
+	$photographyOpenModal = $('.photography-open-modal');
+
+$photographyModalNavPrev.on('click', function (e) {
+	e.preventDefault();
+	$photographyItems.filter('.current').prev().trigger('click');
+});
+
+$photographyModalNavNext.on('click', function (e) {
+	e.preventDefault();
+	$photographyItems.filter('.current').next().trigger('click');
+});
+
+$photographyModalNavClose.on('click', function (e) {
+	e.preventDefault();
+	$photographyOverlay.trigger('click');
+});
+
+$photographyOpenModal.on('click', function (e) {
+	e.preventDefault();
+	$(this).parents('.grid-item').trigger('click');
+});
+
+function openphotographyModal() {
+	setTimeout(function () {
+		$photographyModal.addClass('opened');
+		$photographyOverlay.addClass('loaded');
+	}, 300);
+}
+
+$photographyItems.on('click', function (e) {
+	if (e.target.tagName.toLowerCase() !== 'img' && !$(e.target).hasClass('grid-item')) return;
+	var $this = $(this),
+		$info = $this.find('.photography-info'),
+		$left = $photographyModal.find('.left'),
+		$right = $photographyModal.find('.right'),
+		$imageList = $this.find('ul.image-list'),
+		$video = $this.find('ul.video');
+
+	$this.addClass('current').siblings().removeClass('current');
+
+	// modal navigation
+	$photographyModalNavPrev.parent().toggleClass('enabled', $this.prev().length > 0);
+	$photographyModalNavNext.parent().toggleClass('enabled', $this.next().length > 0);
+
+	// load info into modal
+	$left.empty().append($info.clone());
+	$right.empty();
+
+	// create carousel for images
+	if ($imageList.length > 0) {
+		var $carousel = $('<div />').addClass('owl-carousel owl-theme');
+		$imageList.find('img').each(function (index, el) {
+			var $img = $(el).clone();
+
+			$img.attr('src', $img.data('src'));
+			if ($img.hasClass('img-vertical')) {
+				$img.css('max-height', $win.innerHeight() - 240);
+			}
+			$('<div />').addClass('item').append($img).appendTo($carousel);
+		});
+		$right.append($carousel);
+
+		$carousel.imagesLoaded(function () {
+			$carousel.owlCarousel({
+				loop: true,
+				margin: 0,
+				nav: false,
+				items: 1,
+				autoHeight: true,
+				dots: true,
+			});
+			openphotographyModal();
+		});
+	}
+
+	// load video into modal
+	if ($video.length > 0) {
+		var $iframe = $video.find('iframe'),
+			src = $iframe.data('src'),
+			$wideScreen = $('<div />').addClass('wide-screen');
+
+		if (src.indexOf('youtube') !== -1) {
+			// YouTube video
+			var srcSplit = src.split('?'),
+				srcMain = null;
+
+			if (srcSplit.length > 0) {
+				srcMain = srcSplit[0];
+				srcPure = srcMain.split('/');
+				srcPure = srcPure.pop();
+
+				var $thumbnail = $('<a />').attr({ 'href': '#' }).append(
+					$('<img/>').attr(
+						{ 'src': 'http://i.ytimg.com/vi/' + srcPure + '/maxresdefault.jpg' }
+					)
+				);
+
+				$wideScreen.append($thumbnail);
+				$wideScreen.imagesLoaded(function () {
+					$right.append($wideScreen);
+					openphotographyModal();
+				});
+
+				$thumbnail.on('click', function (e) {
+					e.preventDefault();
+					src = src + '&autoplay=1';
+					$wideScreen.empty().append($iframe.clone().attr({ 'src': src }));
+				});
+			}
+		} else {
+			$wideScreen.append(
+				$iframe.clone().attr({ 'src': src }).on('load', function () {
+					openphotographyModal();
+				})
+			);
+			$right.append($wideScreen);
+		}
+	}
+
+	$photographyOverlay.css('display', 'flex');
+	setTimeout(function () {
+		$photographyOverlay.addClass('opened');
+	}, 100);
+});
+
+$photographyOverlay.on('click', function (e) {
+	if (!$(e.target).hasClass('photography-overlay')) return;
+	$photographyModal.find('.right').empty();
+	$photographyModal.removeClass('opened');
+	setTimeout(function () {
+		$photographyOverlay.removeClass('opened');
+		setTimeout(function () {
+			$photographyOverlay.hide();
+			$photographyOverlay.removeClass('loaded');
+		}, 300);
+	}, 300);
+});
 
 
 
