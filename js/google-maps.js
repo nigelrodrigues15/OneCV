@@ -72,31 +72,35 @@
 			
 		this.map = new google.maps.Map(this.elem, mapOptions);
 		this.map.setOptions({styles: mapStyles});
+		this.kmlLayer = new google.maps.KmlLayer({
+			url: 'http://www.google.com/maps/d/u/2/kml?mid=1TLSTtMiDihATBZZQVluwUtVPnoA&lid=vVjavG9ee5U',
+			map: this.map
+		});
+		
 	};
 
 	GoogleMaps.prototype.addMarker = function () {
-		this.marker = new google.maps.Marker({
-				position: this.latlong,
-				map: this.map,
-				animation: this.markerAnimation,
-				icon: this.options.markerIcon
-			});
+		
+		this.kmlLayer = new google.maps.KmlLayer({
+			url: 'http://www.google.com/maps/d/u/2/kml?mid=1TLSTtMiDihATBZZQVluwUtVPnoA&lid=vVjavG9ee5U',
+			map: this.map
+		});
+		kmlLayer.addListener('click', function (kmlEvent) {
+			var text = kmlEvent.featureData.description;
+			showInContentWindow(text);
+		});
 
-		var self =  this;
-
-		if (this.options.infoWindowContentString !== ''){
-			var infoWindow = new google.maps.InfoWindow({
-				content: this.options.infoWindowContentString
-			});
-			google.maps.event.addListener(this.marker, 'click', function() {
-				infoWindow.open(self.map,self.marker);
-			});
+		function showInContentWindow(text) {
+			var sidediv = document.getElementById('content-window');
+			sidediv.innerHTML = text;
 		}
 	}
 
 	GoogleMaps.prototype.removeMarker = function () {
-		this.marker.setMap(null);
-		this.marker = null;
+		this.kmlLayer = new google.maps.KmlLayer({
+			url: 'http://www.google.com/maps/d/u/2/kml?mid=1TLSTtMiDihATBZZQVluwUtVPnoA&lid=vVjavG9ee5U',
+			map: null
+		});
 	}
 
 	GoogleMaps.prototype.rgb2hex = function (rgb) {
