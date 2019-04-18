@@ -1697,6 +1697,268 @@ section.section-portfolio .projects-overlay .projects-modal.opened {
     opacity: 1
 }
 
+section.section-portfolio .photography-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 102;
+    display: none;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    opacity: 0;
+    -webkit-transition: opacity .3s ease;
+    -moz-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+    background-color: rgba(0, 0, 0, .7)
+}
+
+section.section-portfolio .photography-overlay:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    content: '';
+    border: 4px solid rgba(255, 255, 255, .1);
+    border-top: 4px solid #d67456;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: -30px;
+    animation: spin 1s linear infinite
+}
+
+section.section-portfolio .photography-overlay.opened {
+    opacity: 1
+}
+
+section.section-portfolio .photography-overlay.loaded:before {
+    display: none
+}
+
+section.section-portfolio .photography-overlay .photography-modal {
+    width: 80%;
+    -webkit-transform: scale(0);
+    -o-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+    background-color: #fff;
+    box-shadow: 5px 5px 16px rgba(0, 0, 0, .2)
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #d67456;
+    color: #fff;
+    display: -webkit-flex;
+    display: flex;
+    box-shadow: 5px 5px 16px rgba(0, 0, 0, .2)
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav h1, section.section-portfolio .photography-overlay .photography-modal ul.modal-nav h2, section.section-portfolio .photography-overlay .photography-modal ul.modal-nav h3, section.section-portfolio .photography-overlay .photography-modal ul.modal-nav h4, section.section-portfolio .photography-overlay .photography-modal ul.modal-nav h5, section.section-portfolio .photography-overlay .photography-modal ul.modal-nav h6 {
+    color: #fff
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav a:link, section.section-portfolio .photography-overlay .photography-modal ul.modal-nav a:visited {
+    color: #fff
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav a:link:after, section.section-portfolio .photography-overlay .photography-modal ul.modal-nav a:visited:after {
+    background-color: #fff
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav:before {
+    display: block;
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 0;
+    -webkit-transform-origin: right top;
+    transform-origin: right top;
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    background-color: #d67456;
+    width: 60px;
+    height: 60px;
+    box-shadow: 5px 5px 16px rgba(0, 0, 0, .2);
+    z-index: 1
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav:after {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 100%;
+    height: 50px;
+    width: 170px;
+    right: 0;
+    background-color: #fff;
+    z-index: 1
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav>li {
+    font-size: 1.25em;
+    text-align: center;
+    width: 0;
+    height: 40px;
+    line-height: 40px;
+    background-color: #d67456;
+    z-index: 2;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav>li:hover {
+    background-color: #c85431
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav>li.enabled {
+    width: 40px
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav>li a:link, section.section-portfolio .photography-overlay .photography-modal ul.modal-nav>li a:visited {
+    color: #fff;
+    display: block
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav>li a:link:after, section.section-portfolio .photography-overlay .photography-modal ul.modal-nav>li a:visited:after {
+    display: none
+}
+
+section.section-portfolio .photography-overlay .photography-modal ul.modal-nav>li a:active, section.section-portfolio .photography-overlay .photography-modal ul.modal-nav>li a:hover {
+    text-decoration: none
+}
+
+section.section-portfolio .photography-overlay .photography-modal .overflow-wrapper {
+    padding: 40px;
+    position: relative;
+    z-index: 1
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    padding: 0;
+    -webkit-align-items: center;
+    align-items: center
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .left {
+    width: 30%;
+    padding-right: 40px
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .left ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .left ul>li {
+    margin-bottom: 2em
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .left ul>li:last-child {
+    margin-bottom: 0
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .left ul>li h3 {
+    color: #d67456;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.4em;
+    line-height: 1.25
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .left ul>li h3+p {
+    color: #4d4d4d;
+    font-size: 1em
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .right {
+    width: 70%;
+    line-height: 0
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen {
+    height: 0;
+    width: 100%;
+    padding-top: 56.25%;
+    position: relative
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen>a, section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen>iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen:visited, section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen>a:link {
+    display: block
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen:visited:before, section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen>a:link:before {
+    display: block;
+    position: absolute;
+    content: '';
+    background-image: url(../img/youtube-play.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 50%;
+    margin-left: -40px;
+    margin-top: -40px;
+    opacity: .5;
+    -webkit-transition: opacity .3s ease;
+    -moz-transition: opacity .3s ease;
+    transition: opacity .3s ease
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen:visited:active:before, section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen:visited:hover:before, section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen>a:link:active:before, section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen>a:link:hover:before {
+    opacity: .8
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen:visited:after, section.section-portfolio .photography-overlay .photography-modal .modal-main .right .wide-screen>a:link:after {
+    display: none
+}
+
+section.section-portfolio .photography-overlay .photography-modal .modal-main .left, section.section-portfolio .photography-overlay .photography-modal .modal-main .right {
+    z-index: 1;
+    position: relative
+}
+
+section.section-portfolio .photography-overlay .photography-modal.opened {
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1
+}
+
 section.section-portfolio>svg.triangle {
     position: absolute;
     left: 0;
@@ -1761,6 +2023,30 @@ section.section-portfolio ul.projects-cats>li a.current:link, section.section-po
     color: #d67456
 }
 
+section.section-portfolio ul.photography-cats {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    font-family: Oswald, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: .8em
+}
+
+section.section-portfolio ul.photography-cats>li {
+    display: inline-block;
+    margin-right: 20px
+}
+
+section.section-portfolio ul.photography-cats>li:last-child {
+    margin-right: 0
+}
+
+section.section-portfolio ul.photography-cats>li a.current:link, section.section-portfolio ul.portfolio-cats>li a.current:visited {
+    color: #d67456
+}
+
 section.section-portfolio .grid {
     width: calc(100% + 16px);
     position: relative;
@@ -1780,6 +2066,10 @@ section.section-portfolio .grid .grid-item .portfolio-hidden {
 }
 
 section.section-portfolio .grid .grid-item .projects-hidden {
+    display: none
+}
+
+section.section-portfolio .grid .grid-item .photography-hidden {
     display: none
 }
 
@@ -1841,6 +2131,22 @@ section.section-portfolio .grid .grid-item a:link.projects-open-modal, section.s
 }
 
 section.section-portfolio .grid .grid-item a:link.projects-external-link, section.section-portfolio .grid .grid-item a:visited.portfolio-external-link {
+    margin-left: 28px;
+    -webkit-transform: translateX(100px);
+    -o-transform: translateX(100px);
+    -ms-transform: translateX(100px);
+    transform: translateX(100px)
+}
+
+section.section-portfolio .grid .grid-item a:link.photography-open-modal, section.section-portfolio .grid .grid-item a:visited.portfolio-open-modal {
+    margin-left: -28px;
+    -webkit-transform: translateX(-100px);
+    -o-transform: translateX(-100px);
+    -ms-transform: translateX(-100px);
+    transform: translateX(-100px)
+}
+
+section.section-portfolio .grid .grid-item a:link.photography-external-link, section.section-portfolio .grid .grid-item a:visited.portfolio-external-link {
     margin-left: 28px;
     -webkit-transform: translateX(100px);
     -o-transform: translateX(100px);
@@ -1920,6 +2226,20 @@ section.section-portfolio .grid .grid-item:hover a:link.projects-open-modal, sec
 }
 
 section.section-portfolio .grid .grid-item:hover a:link.projects-external-link, section.section-portfolio .grid .grid-item:hover a:visited.projects-external-link {
+    -webkit-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0)
+}
+
+section.section-portfolio .grid .grid-item:hover a:link.photography-open-modal, section.section-portfolio .grid .grid-item:hover a:visited.photography-open-modal {
+    -webkit-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0)
+}
+
+section.section-portfolio .grid .grid-item:hover a:link.photography-external-link, section.section-portfolio .grid .grid-item:hover a:visited.photography-external-link {
     -webkit-transform: translateX(0);
     -o-transform: translateX(0);
     -ms-transform: translateX(0);
@@ -2625,6 +2945,13 @@ section.section-contact>.right ul.connect>li {
     section.section-portfolio ul.projects-cats>li+li {
         margin-top: 10px
     }
+    section.section-portfolio ul.photography-cats>li {
+        display: block;
+        margin-right: 0
+    }
+    section.section-portfolio ul.photography-cats>li+li {
+        margin-top: 10px
+    }
     section.section-portfolio .grid .grid-item {
         width: 100%
     }
@@ -2686,6 +3013,25 @@ section.section-contact>.right ul.connect>li {
         padding-right: 0
     }
     section.section-portfolio .projects-overlay .projects-modal .modal-main .right {
+        margin-bottom: 40px!important
+    }
+    section.section-portfolio ul.photography-cats {
+        margin-bottom: 1em;
+        padding: 1em 0;
+        /* background-color:#fff; */
+        text-align: center
+    }
+    section.section-portfolio .photography-overlay .photography-modal.opened {
+        height: calc(100% - 160px)
+    }
+    section.section-portfolio .photography-overlay .photography-modal .overflow-wrapper {
+        overflow: auto;
+        height: 100%
+    }
+    section.section-portfolio .photography-overlay .photography-modal .modal-main .left {
+        padding-right: 0
+    }
+    section.section-portfolio .photography-overlay .photography-modal .modal-main .right {
         margin-bottom: 40px!important
     }
     section.section-testimonials .owl-carousel .testimonial .person::before {
