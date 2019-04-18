@@ -3173,6 +3173,12 @@ section.section-contact>.right ul.connect>li {
     color: grey;
 }
 
-.btn-size{
+.btn-size {
     width: 100%;
+}
+
+.map-frame {
+    width: 100%;
+    height: 50vh;
+    position: relative;
 }
