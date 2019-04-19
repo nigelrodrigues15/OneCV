@@ -2666,7 +2666,7 @@ section.section-contact>.left .map-canvas.opened {
 
 section.section-contact>.left .contact-main {
     color: #fff;
-    min-height: 350px;
+    min-height: 50vh;
     padding: 80px;
     z-index: 2;
     position: relative;
@@ -3179,6 +3179,12 @@ section.section-contact>.right ul.connect>li {
 
 .map-frame {
     width: 100%;
-    height: 50vh;
+    height: 100%;
+    /* height: 100vh; */
     position: relative;
+}
+
+.htravel {
+font-size: 1em !important;
+height: 20px !important;
 }
