@@ -3108,8 +3108,10 @@ section.section-contact>.right ul.connect>li {
     align-items: center;
     justify-content: center;
     /* width: 200px; */
-    padding: 25px;
+    padding: 15px;
+    margin: 20px;
     border-radius: 10px;
+    border: 2px solid #f3d5cc;
 }
 
 .sport-item * {
@@ -3117,9 +3119,6 @@ section.section-contact>.right ul.connect>li {
     justify-content: center;
 }
 
-.sport-item:hover {
-    background-color: #f3d5cc;
-}
 
 .train-list {
     display: grid;
