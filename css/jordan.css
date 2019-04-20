@@ -3121,10 +3121,6 @@ section.section-contact>.right ul.connect>li {
     background-color: #f3d5cc;
 }
 
-.train-item:hover h3 {
-    color: #d67456;
-}
-
 .train-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -3164,7 +3160,7 @@ section.section-contact>.right ul.connect>li {
 .train-item h3 {
     width: 100px;
     /* font-size: 100px; */
-    color: grey;
+    color: #d67456;
 }
 
 .travel-item h3 {
@@ -3185,6 +3181,6 @@ section.section-contact>.right ul.connect>li {
 }
 
 .htravel {
-font-size: 1em !important;
-height: 20px !important;
+    font-size: 1em !important;
+    height: 20px !important;
 }
