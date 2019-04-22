@@ -3119,7 +3119,6 @@ section.section-contact>.right ul.connect>li {
     justify-content: center;
 }
 
-
 /* .train-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -3182,4 +3181,10 @@ section.section-contact>.right ul.connect>li {
 .htravel {
     font-size: 1em !important;
     height: 20px !important;
+}
+
+.sport-center div{
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
