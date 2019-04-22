@@ -2863,7 +2863,7 @@ section.section-contact>.right ul.connect>li {
 @media only screen and (max-width:767px) {
     nav button.open-menu {
         top: 5px;
-        right: 40vw;
+        right: 5px;
     }
     nav ul.menu {
         font-size: 1.2em
@@ -3095,19 +3095,19 @@ section.section-contact>.right ul.connect>li {
     /* font-weight: bold; */
 }
 
-.sport-list {
+/* .sport-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .sport-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* width: 200px; */
+    width: 200px;
     padding: 15px;
     margin: 20px;
     border-radius: 10px;
@@ -3120,12 +3120,12 @@ section.section-contact>.right ul.connect>li {
 }
 
 
-.train-list {
+/* .train-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .train-item {
     display: inline-flex;
@@ -3135,20 +3135,20 @@ section.section-contact>.right ul.connect>li {
     margin-bottom: 45px;
 }
 
-.travel-list {
+/* .travel-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
     justify-content: center;
-}
+} */
 
-.travel-item {
+/* .travel-item {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 45px;
-}
+} */
 
 .sport-item h1 * {
     width: 100px;
