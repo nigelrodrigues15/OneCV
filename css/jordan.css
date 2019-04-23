@@ -3103,20 +3103,22 @@ section.section-contact>.right ul.connect>li {
 } */
 
 .sport-item {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 200px;
-    padding: 15px;
+    /* width: 200px; */
+    /* padding: 15px;
     margin: 20px;
     border-radius: 10px;
-    border: 2px solid #f3d5cc;
+    border: 2px solid #f3d5cc; */
+    margin-bottom: 45px;
 }
 
 .sport-item * {
     align-items: center;
     justify-content: center;
+    
 }
 
 /* .train-list {
@@ -3183,8 +3185,20 @@ section.section-contact>.right ul.connect>li {
     height: 20px !important;
 }
 
-.sport-center div{
+.sport-center {
+    display: block;
+}
+.sport-center{
     align-content: center;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    vertical-align: center;
+}
+.train-center *{
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: center;
 }
