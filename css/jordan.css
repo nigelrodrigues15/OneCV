@@ -2162,10 +2162,10 @@ section.section-portfolio .grid .grid-item a:active, section.section-portfolio .
 
 section.section-portfolio .grid .grid-item img {
     width: 100%;
-    -webkit-filter: contrast(90%) grayscale(1);
-    -moz-filter: contrast(90%) grayscale(1);
-    -ms-filter: contrast(90%) grayscale(1);
-    filter: contrast(90%) grayscale(1);
+    -webkit-filter: contrast(90%) grayscale(0);
+    -moz-filter: contrast(90%) grayscale(0);
+    -ms-filter: contrast(90%) grayscale(0);
+    filter: contrast(90%) grayscale(0);
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     transition: all .3s ease
@@ -2194,10 +2194,10 @@ section.section-portfolio .grid .grid-item img {
 }
 
 section.section-portfolio .grid .grid-item:hover img {
-    -webkit-filter: contrast(100%) grayscale(0);
-    -moz-filter: contrast(100%) grayscale(0);
-    -ms-filter: contrast(100%) grayscale(0);
-    filter: contrast(100%) grayscale(0)
+    -webkit-filter: contrast(100%) grayscale(0.7);
+    -moz-filter: contrast(100%) grayscale(0.7);
+    -ms-filter: contrast(100%) grayscale(0.7);
+    filter: contrast(100%) grayscale(0.7)
 }
 
 section.section-portfolio .grid .grid-item:hover a:link, section.section-portfolio .grid .grid-item:hover a:visited {
