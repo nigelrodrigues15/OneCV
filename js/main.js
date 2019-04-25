@@ -175,9 +175,9 @@ $('.scroll-down-indicator').on('click', function (e) {
 
 /* 4. Portfolio */
 
-var $grid = $('.grid');
-$grid.imagesLoaded(function () {
-	$grid.isotope({
+var $gridH = $('.grid.gridH');
+$gridH.imagesLoaded(function () {
+	$gridH.isotope({
 		itemSelector: '.grid-item',
 		layoutMode: 'masonry'
 	});
@@ -190,7 +190,7 @@ $portfolioCats.on('click', function (e) {
 	if (cat !== '*') {
 		cat = '.' + cat;
 	}
-	$grid.isotope({
+	$gridH.isotope({
 		filter: cat
 	});
 });
