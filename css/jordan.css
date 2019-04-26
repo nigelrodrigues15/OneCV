@@ -542,10 +542,10 @@ section.section-hero .hero-slides {
     display: block;
     z-index: 1;
     opacity: .5;
-    -webkit-filter: grayscale(1);
+    /* -webkit-filter: grayscale(1);
     -moz-filter: grayscale(1);
     -ms-filter: grayscale(1);
-    filter: grayscale(1)
+    filter: grayscale(1) */
 }
 
 section.section-hero .hero-slides .animated {
