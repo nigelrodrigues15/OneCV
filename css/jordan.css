@@ -3159,7 +3159,7 @@ section.section-contact>.right ul.connect>li {
 }
 
 .train-item h3 {
-    width: 100px;
+    /* width: 100px; */
     /* font-size: 100px; */
     color: #d67456;
 }
@@ -3198,7 +3198,7 @@ section.section-contact>.right ul.connect>li {
     vertical-align: center;
 }
 
-.train-center * {
+.train-center {
     align-content: center;
     justify-content: center;
     align-items: center;
