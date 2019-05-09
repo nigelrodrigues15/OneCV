@@ -2184,10 +2184,10 @@ section.section-portfolio .grid .grid-item img {
 
 .photography .grid .grid-item:hover img {
     width: 100%;
-    -webkit-filter: contrast(90%) grayscale(0.4) !important;
-    -moz-filter: contrast(90%) grayscale(0.4) !important;
-    -ms-filter: contrast(90%) grayscale(0.4) !important;
-    filter: contrast(90%) grayscale(0.4) !important;
+    -webkit-filter: contrast(90%) saturate(1.5) !important;
+    -moz-filter: contrast(90%) saturate(1.5) !important;
+    -ms-filter: contrast(90%) saturate(1.5) !important;
+    filter: contrast(90%) saturate(1.5) !important;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     transition: all .3s ease
