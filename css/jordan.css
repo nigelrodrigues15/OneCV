@@ -2184,20 +2184,20 @@ section.section-portfolio .grid .grid-item img {
 
 .photography .grid .grid-item:hover img {
     width: 100%;
-    -webkit-filter: contrast(90%) saturate(1.5) !important;
-    -moz-filter: contrast(90%) saturate(1.5) !important;
-    -ms-filter: contrast(90%) saturate(1.5) !important;
-    filter: contrast(90%) saturate(1.5) !important;
+    -webkit-filter: contrast(90%) saturate(1.3) !important;
+    -moz-filter: contrast(90%) saturate(1.3) !important;
+    -ms-filter: contrast(90%) saturate(1.3) !important;
+    filter: contrast(90%) saturate(1.3) !important;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     transition: all .3s ease
 }
 
 section.section-portfolio .grid .grid-item:hover img {
-    -webkit-filter: contrast(100%) grayscale(0.7);
-    -moz-filter: contrast(100%) grayscale(0.7);
-    -ms-filter: contrast(100%) grayscale(0.7);
-    filter: contrast(100%) grayscale(0.7)
+    -webkit-filter: contrast(100%) saturate(1.3);
+    -moz-filter: contrast(100%) saturate(1.3);
+    -ms-filter: contrast(100%) saturate(1.3);
+    filter: contrast(100%) saturate(1.3)
 }
 
 section.section-portfolio .grid .grid-item:hover a:link, section.section-portfolio .grid .grid-item:hover a:visited {
